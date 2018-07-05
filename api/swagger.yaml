@@ -1,0 +1,1600 @@
+---
+swagger: "2.0"
+info:
+  description: "No description"
+  version: "1.0.0"
+  title: "bistbid"
+  contact: {}
+tags:
+- name: "shop"
+- name: "auction"
+- name: "public"
+- name: "user"
+- name: "admin"
+paths:
+  /admin:
+    post:
+      tags:
+      - "admin"
+      description: "place holder"
+      operationId: "postAdmin"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation102"
+      x-swagger-router-controller: "Admin"
+  /auction/advertises:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionAdvertises"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation38"
+      x-swagger-router-controller: "Auction"
+  /auction/carousel:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionCarousel"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation39"
+      x-swagger-router-controller: "Auction"
+  /auction/daily/offers:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionDailyOffers"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation40"
+      x-swagger-router-controller: "Auction"
+  /auction/events/upcoming:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionEventsUpcoming"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagneum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation34"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation35"
+      x-swagger-router-controller: "Auction"
+  /auction/news:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionNews"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation37"
+      x-swagger-router-controller: "Auction"
+  /auction/popup/notification:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionPopupNotification"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation36"
+      x-swagger-router-controller: "Auction"
+  /auction/upcoming:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionUpcoming"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation21"
+        500:
+          description: "Status 500"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation22"
+      x-swagger-router-controller: "Auction"
+  /auction/{aid}:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionAid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation23"
+        401:
+          description: "Status 401"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation24"
+        402:
+          description: "Status 402"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation25"
+        404:
+          description: "Status 404"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation26"
+      x-swagger-router-controller: "Auction"
+  /auction/{aid}/register:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionAidRegister"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation27"
+        404:
+          description: "Status 404"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation28"
+      x-swagger-router-controller: "Auction"
+    post:
+      tags:
+      - "auction"
+      operationId: "postAuctionAidRegister"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation29"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation30"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation31"
+      x-swagger-router-controller: "Auction"
+  /auction/{aid}/websocket: {}
+  /auctions/filterby:
+    get:
+      tags:
+      - "auction"
+      description: "get auctions with filter"
+      operationId: "getAuctionsFilterby"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "from_date"
+        in: "query"
+        required: false
+        type: "string"
+        format: "date"
+      - name: "to_date"
+        in: "query"
+        required: false
+        type: "string"
+        format: "date"
+      - name: "categories"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "number"
+          format: "double"
+        collectionFormat: "csv"
+      - name: "user_id"
+        in: "header"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation32"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation33"
+      x-swagger-router-controller: "Auction"
+  /payment/gateway/mellat/callback:
+    post:
+      tags:
+      - "public"
+      operationId: "postPaymentGatewayMellatCallback"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation48"
+      responses:
+        200:
+          description: "Status 200"
+      x-swagger-router-controller: "Public"
+  /payment/methods:
+    get:
+      tags:
+      - "public"
+      operationId: "getPaymentMethods"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation41"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation42"
+      x-swagger-router-controller: "Public"
+  /payment/{pid}/confirm:
+    post:
+      tags:
+      - "public"
+      operationId: "postPaymentPidConfirm"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation45"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation46"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation47"
+      x-swagger-router-controller: "Public"
+  /shipment/methods:
+    get:
+      tags:
+      - "public"
+      operationId: "getShipmentMethods"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation43"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation44"
+      x-swagger-router-controller: "Public"
+  /shop/advertises:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopAdvertises"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation8"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation9"
+      x-swagger-router-controller: "Shop"
+  /shop/carousel:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopCarousel"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation19"
+      x-swagger-router-controller: "Shop"
+  /shop/categories:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopCategories"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation2"
+      x-swagger-router-controller: "Shop"
+  /shop/category/{cid}:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopCategoryCid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation3"
+      x-swagger-router-controller: "Shop"
+  /shop/category/{cid}/products/filterby:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopCategoryCidProductsFilterby"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "cid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "price_floor"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "price_ceiling"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "manufacture"
+        in: "query"
+        required: false
+        type: "array"
+        items:
+          type: "number"
+          format: "double"
+        collectionFormat: "csv"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation16"
+        404:
+          description: "Status 404"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation17"
+        500:
+          description: "Status 500"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation18"
+      x-swagger-router-controller: "Shop"
+  /shop/contactus:
+    post:
+      tags:
+      - "shop"
+      operationId: "postShopContactus"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation13"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation14"
+        406:
+          description: "Status 406"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation15"
+      x-swagger-router-controller: "Shop"
+  /shop/daily/offers:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopDailyOffers"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation20"
+      x-swagger-router-controller: "Shop"
+  /shop/events/upcoming:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopEventsUpcoming"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation6"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation7"
+      x-swagger-router-controller: "Shop"
+  /shop/news:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopNews"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation10"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation11"
+      x-swagger-router-controller: "Shop"
+  /shop/popup/notification:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopPopupNotification"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation12"
+      x-swagger-router-controller: "Shop"
+  /shop/product/{pid}:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopProductPid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation4"
+        404:
+          description: "Status 404"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation5"
+      x-swagger-router-controller: "Shop"
+  /shop/product/{pid}/comments:
+    get:
+      tags:
+      - "shop"
+      operationId: "getShopProductPidComments"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pagenum"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      - name: "pagesize"
+        in: "query"
+        required: false
+        type: "number"
+        format: "double"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation"
+      x-swagger-router-controller: "Shop"
+  /user/login:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserLogin"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation55"
+      responses:
+        202:
+          description: "Status 202"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation56"
+        404:
+          description: "Status 404"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation57"
+      x-swagger-router-controller: "User"
+  /user/register:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserRegister"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation52"
+      responses:
+        201:
+          description: "Status 201"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation53"
+        406:
+          description: "Status 406"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation54"
+      x-swagger-router-controller: "User"
+  /user/{uid}/auction:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidAuction"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation64"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation65"
+      x-swagger-router-controller: "User"
+  /user/{uid}/auction/{aid}:
+    delete:
+      tags:
+      - "user"
+      operationId: "deleteUserUidAuctionAid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation66"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation67"
+      x-swagger-router-controller: "User"
+    patch:
+      tags:
+      - "user"
+      operationId: "patchUserUidAuctionAid"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation68"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation69"
+      x-swagger-router-controller: "User"
+  /user/{uid}/auction/{aid}/plan:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidAuctionAidPlan"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation91"
+      x-swagger-router-controller: "User"
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidAuctionAidPlan"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation88"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation89"
+        406:
+          description: "Status 406"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation90"
+      x-swagger-router-controller: "User"
+  /user/{uid}/auction/{aid}/plan/{pid}:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidAuctionAidPlanPid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation92"
+      x-swagger-router-controller: "User"
+    delete:
+      tags:
+      - "user"
+      operationId: "deleteUserUidAuctionAidPlanPid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation96"
+        403:
+          description: "Status 403"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation97"
+      x-swagger-router-controller: "User"
+    patch:
+      tags:
+      - "user"
+      operationId: "patchUserUidAuctionAidPlanPid"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation93"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation94"
+        406:
+          description: "Status 406"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation95"
+      x-swagger-router-controller: "User"
+  /user/{uid}/auction/{aid}/save:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidAuctionAidSave"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation80"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation81"
+      x-swagger-router-controller: "User"
+  /user/{uid}/auctions/registered:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidAuctionsRegistered"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation101"
+      x-swagger-router-controller: "User"
+  /user/{uid}/cart/item:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidCartItem"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation70"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation71"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation72"
+      x-swagger-router-controller: "User"
+  /user/{uid}/cart/{cid}/order/{oid}/item/{iid}:
+    delete:
+      tags:
+      - "user"
+      operationId: "deleteUserUidCartCidOrderOidItemIid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "cid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "oid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "iid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation73"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation74"
+      x-swagger-router-controller: "User"
+    patch:
+      tags:
+      - "user"
+      operationId: "patchUserUidCartCidOrderOidItemIid"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "cid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "oid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "iid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation75"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation76"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation77"
+      x-swagger-router-controller: "User"
+  /user/{uid}/contactus:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidContactus"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation85"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation86"
+        406:
+          description: "Status 406"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation87"
+      x-swagger-router-controller: "User"
+  /user/{uid}/password/reset:
+    patch:
+      tags:
+      - "user"
+      operationId: "patchUserUidPasswordReset"
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation63"
+      responses:
+        200:
+          description: "Status 200"
+        406:
+          description: "Status 406"
+      x-swagger-router-controller: "User"
+  /user/{uid}/payment/{pid}:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidPaymentPid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation49"
+        404:
+          description: "Status 404"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation50"
+      x-swagger-router-controller: "User"
+    delete:
+      tags:
+      - "user"
+      operationId: "deleteUserUidPaymentPid"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation51"
+      x-swagger-router-controller: "User"
+  /user/{uid}/payment/{pid}/discount/code/apply:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidPaymentPidDiscountCodeApply"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation98"
+      responses:
+        202:
+          description: "Status 202"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation99"
+        406:
+          description: "Status 406"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation100"
+      x-swagger-router-controller: "User"
+  /user/{uid}/popup/notification:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidPopupNotification"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation84"
+      x-swagger-router-controller: "User"
+  /user/{uid}/product/{pid}/comment:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidProductPidComment"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation78"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation79"
+      x-swagger-router-controller: "User"
+  /user/{uid}/product/{pid}/save:
+    post:
+      tags:
+      - "user"
+      operationId: "postUserUidProductPidSave"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "pid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation82"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation83"
+      x-swagger-router-controller: "User"
+  /user/{uid}/profile:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidProfile"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation58"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation59"
+      x-swagger-router-controller: "User"
+    patch:
+      tags:
+      - "user"
+      operationId: "patchUserUidProfile"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/anonymousRepresentation60"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation61"
+        304:
+          description: "Status 304"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation62"
+      x-swagger-router-controller: "User"
+definitions:
+  anonymousRepresentation:
+    type: "object"
+  anonymousRepresentation2:
+    type: "object"
+  anonymousRepresentation3:
+    type: "object"
+  anonymousRepresentation4:
+    type: "object"
+  anonymousRepresentation5:
+    type: "object"
+  anonymousRepresentation6:
+    type: "object"
+  anonymousRepresentation7:
+    type: "object"
+  anonymousRepresentation8:
+    type: "object"
+  anonymousRepresentation9:
+    type: "object"
+  anonymousRepresentation10:
+    type: "object"
+  anonymousRepresentation11:
+    type: "object"
+  anonymousRepresentation12:
+    type: "object"
+  anonymousRepresentation13:
+    type: "object"
+  anonymousRepresentation14:
+    type: "object"
+  anonymousRepresentation15:
+    type: "object"
+  anonymousRepresentation16:
+    type: "object"
+  anonymousRepresentation17:
+    type: "object"
+  anonymousRepresentation18:
+    type: "object"
+  anonymousRepresentation19:
+    type: "object"
+  anonymousRepresentation20:
+    type: "object"
+  anonymousRepresentation21:
+    type: "object"
+  anonymousRepresentation22:
+    type: "object"
+  anonymousRepresentation23:
+    type: "object"
+  anonymousRepresentation24:
+    type: "object"
+  anonymousRepresentation25:
+    type: "object"
+  anonymousRepresentation26:
+    type: "object"
+  anonymousRepresentation27:
+    type: "object"
+  anonymousRepresentation28:
+    type: "object"
+  anonymousRepresentation29:
+    type: "object"
+  anonymousRepresentation30:
+    type: "object"
+  anonymousRepresentation31:
+    type: "object"
+  anonymousRepresentation32:
+    type: "object"
+  anonymousRepresentation33:
+    type: "object"
+  anonymousRepresentation34:
+    type: "object"
+  anonymousRepresentation35:
+    type: "object"
+  anonymousRepresentation36:
+    type: "object"
+  anonymousRepresentation37:
+    type: "object"
+  anonymousRepresentation38:
+    type: "object"
+  anonymousRepresentation39:
+    type: "object"
+  anonymousRepresentation40:
+    type: "object"
+  anonymousRepresentation41:
+    type: "object"
+  anonymousRepresentation42:
+    type: "object"
+  anonymousRepresentation43:
+    type: "object"
+  anonymousRepresentation44:
+    type: "object"
+  anonymousRepresentation45:
+    type: "object"
+  anonymousRepresentation46:
+    type: "object"
+  anonymousRepresentation47:
+    type: "object"
+  anonymousRepresentation48:
+    type: "object"
+  anonymousRepresentation49:
+    type: "object"
+  anonymousRepresentation50:
+    type: "object"
+  anonymousRepresentation51:
+    type: "object"
+  anonymousRepresentation52:
+    type: "object"
+  anonymousRepresentation53:
+    type: "object"
+  anonymousRepresentation54:
+    type: "object"
+  anonymousRepresentation55:
+    type: "object"
+  anonymousRepresentation56:
+    type: "object"
+  anonymousRepresentation57:
+    type: "object"
+  anonymousRepresentation58:
+    type: "object"
+  anonymousRepresentation59:
+    type: "object"
+  anonymousRepresentation60:
+    type: "object"
+  anonymousRepresentation61:
+    type: "object"
+  anonymousRepresentation62:
+    type: "object"
+  anonymousRepresentation63:
+    type: "object"
+  anonymousRepresentation64:
+    type: "object"
+  anonymousRepresentation65:
+    type: "object"
+  anonymousRepresentation66:
+    type: "object"
+  anonymousRepresentation67:
+    type: "object"
+  anonymousRepresentation68:
+    type: "object"
+  anonymousRepresentation69:
+    type: "object"
+  anonymousRepresentation70:
+    type: "object"
+  anonymousRepresentation71:
+    type: "object"
+  anonymousRepresentation72:
+    type: "object"
+  anonymousRepresentation73:
+    type: "object"
+  anonymousRepresentation74:
+    type: "object"
+  anonymousRepresentation75:
+    type: "object"
+  anonymousRepresentation76:
+    type: "object"
+  anonymousRepresentation77:
+    type: "object"
+  anonymousRepresentation78:
+    type: "object"
+  anonymousRepresentation79:
+    type: "object"
+  anonymousRepresentation80:
+    type: "object"
+  anonymousRepresentation81:
+    type: "object"
+  anonymousRepresentation82:
+    type: "object"
+  anonymousRepresentation83:
+    type: "object"
+  anonymousRepresentation84:
+    type: "object"
+  anonymousRepresentation85:
+    type: "object"
+  anonymousRepresentation86:
+    type: "object"
+  anonymousRepresentation87:
+    type: "object"
+  anonymousRepresentation88:
+    type: "object"
+  anonymousRepresentation89:
+    type: "object"
+  anonymousRepresentation90:
+    type: "object"
+  anonymousRepresentation91:
+    type: "object"
+  anonymousRepresentation92:
+    type: "object"
+  anonymousRepresentation93:
+    type: "object"
+  anonymousRepresentation94:
+    type: "object"
+  anonymousRepresentation95:
+    type: "object"
+  anonymousRepresentation96:
+    type: "object"
+  anonymousRepresentation97:
+    type: "object"
+  anonymousRepresentation98:
+    type: "object"
+  anonymousRepresentation99:
+    type: "object"
+  anonymousRepresentation100:
+    type: "object"
+  anonymousRepresentation101:
+    type: "object"
+  anonymousRepresentation102:
+    type: "object"

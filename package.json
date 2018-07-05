@@ -1,0 +1,26 @@
+{
+  "name": "bistbid",
+  "version": "1.0.0",
+  "description": "No description",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Apache-2.0",
+  "private": true,
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "connect": "^3.2.0",
+    "express": "^4.16.3",
+    "forest-express-mongoose": "^2.10.3",
+    "js-yaml": "^3.3.0",
+    "mongodb": "^3.1.0",
+    "mongoose": "^5.2.1",
+    "mongoose-currency": "^0.2.0",
+    "swagger-tools": "0.10.1"
+  }
+}
