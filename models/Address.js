@@ -3,15 +3,6 @@ var Schema = mongoose.Schema;
 var PaymentMehtod = require('./PaymentMethod');
 var AddressSchema = new Schema({
 
-    _id: {
-        type: mongoose.SchemaTypes.ObjectId
-    },
-
-    user: {
-        type: mongoose.SchemaTypes.ObjectId,
-        required: true
-    },
-
     country: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Country",

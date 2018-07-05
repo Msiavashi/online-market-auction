@@ -6,15 +6,10 @@ var SALT_WORK_FACTOR = 10;
 
 var UserSchema = mongoose.Schema({
 
-    _id: {
-        type : mongoose.Schema.Types.ObjectId
-    },
-
  
     name: {
-        first: {type: String, trim: true},
-        last: {type: String, trim: true},
-        required: true
+        first: {type: String, trim: true, required: true},
+        last: {type: String, trim: true, required: true},
     },
 
     // nationalId: {
@@ -53,23 +48,24 @@ var UserSchema = mongoose.Schema({
     },
 
     address: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: "Address"
     },
 
     payments:[{
         type: Schema.Types.ObjectId,
-        refs: "Payment"
+        ref: "Payment"
     }],
 
     roles: [{
         type: Schema.Types.ObjectId,
-        refs: "Role"
+        ref: "Role"
     }],
 
-    orders: [{
-        type: Schema.Types.ObjectId,
-        refs: "Order"
-    }]
+    // orders: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Order"
+    // }]
 });
 
 
@@ -101,3 +97,4 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
     });
 };
 
+module.exports = mongoose.model("User", UserSchema);

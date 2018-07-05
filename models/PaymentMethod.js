@@ -2,11 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PaymentMethodSchema = new Schema({
-
-    _id: {
-        type: mongoose.SchemaTypes.ObjectId
-    },
-
+    
     title: {
         type: String, 
         required: true

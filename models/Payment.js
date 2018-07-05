@@ -4,10 +4,6 @@ var PaymentMethod = require('./PaymentMethod');
 
 var PaymentSchema = new Schema({
 
-    _id: {
-        type: mongoose.SchemaTypes.ObjectId
-    },
-
     user: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true

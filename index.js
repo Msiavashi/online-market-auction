@@ -12,7 +12,7 @@ var serverPort = 8080;
 
 
 // mongoose connection
-mongoose.connect('mongodb://localhost:27017/bistbid');
+mongoose.connect('mongodb://localhost:27017/bistbid', {useNewUrlParser: true});
 
 
 //configuring liana forest admin dashboard
@@ -21,7 +21,7 @@ app.use(require('forest-express-mongoose').init({
   modelsDir: __dirname + '/models', // Your models directory.
   envSecret: process.env.FOREST_ENV_SECRET,
   authSecret: process.env.FOREST_AUTH_SECRET,
-  mongoose: require('mongoose') // The mongoose database connection.
+  mongoose: mongoose // The mongoose database connection.
 }));
 
 // swaggerRouter configuration
