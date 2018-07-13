@@ -29,8 +29,12 @@ var AddressSchema = new Schema({
     postalCode: {
         type: String,
         required: true
-    }
+    },
 
+    User: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
 
 });
 

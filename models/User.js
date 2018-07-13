@@ -12,12 +12,6 @@ var UserSchema = mongoose.Schema({
         last: {type: String, trim: true, required: true},
     },
 
-    // nationalId: {
-    //     type: String,
-    //     trim:true,
-    //     required:true
-    // },
-
     username: {
         type: String,
         require: true,
@@ -47,25 +41,12 @@ var UserSchema = mongoose.Schema({
         required: true
     },
 
-    address: {
-        type: Schema.Types.ObjectId,
-        ref: "Address"
-    },
-
-    payments:[{
-        type: Schema.Types.ObjectId,
-        ref: "Payment"
-    }],
 
     roles: [{
         type: Schema.Types.ObjectId,
         ref: "Role"
     }],
 
-    // orders: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Order"
-    // }]
 });
 
 

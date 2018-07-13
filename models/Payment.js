@@ -47,9 +47,8 @@ var PaymentSchema = new Schema({
     paymentMethod: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "PaymentMethod"
-    }
+    },
 
-    
 });
 
 // getters and setters

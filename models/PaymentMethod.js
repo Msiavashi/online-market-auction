@@ -5,7 +5,8 @@ var PaymentMethodSchema = new Schema({
     
     title: {
         type: String, 
-        required: true
+        required: true,
+        enum: ["USER_CREDIT", "ONLINE", "BANK_RECEIPT"]
     },
 
     description: {
