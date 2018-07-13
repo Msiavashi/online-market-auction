@@ -2,6 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var PaymentMethod = require('./PaymentMethod');
 
+
+var status = {
+    UNPAID: 0,
+    PAID: 1
+}
+
+
 var PaymentSchema = new Schema({
 
     user: {
@@ -22,9 +29,9 @@ var PaymentSchema = new Schema({
 
     status: {
         type: Number,
-        enum: [0, 1],       //0: UNPAID, 1: PAID
+        enum: [status.UNPAID, status.PAID],       //0: UNPAID, 1: PAID
         required: true,
-        default: 0
+        default: status.UNPAID
     },
 
     details: {

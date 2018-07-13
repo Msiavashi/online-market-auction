@@ -1,12 +1,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var title = {
+    USER_CREDIT: 0,
+    ONLINE: 1,
+    BANK_RECEIPT: 2
+}
+
 var PaymentMethodSchema = new Schema({
     
     title: {
         type: Number, 
         required: true,
-        enum: [0, 1, 2]     //["USER_CREDIT", "ONLINE", "BANK_RECEIPT"]
+        enum: [title.USER_CREDIT, title.ONLINE, title.BANK_RECEIPT]     //["USER_CREDIT", "ONLINE", "BANK_RECEIPT"]
     },
 
     description: {
