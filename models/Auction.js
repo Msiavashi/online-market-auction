@@ -44,4 +44,14 @@ var AuctionSchema = new Schema({
 });
 
 
+// getters and setters
+
+function getPrice(price){
+    return (price / 1000).toFixed(3);
+};
+
+
+function setPrice(price){
+    return price * 1000;
+}
 module.exports = mongoose.model("Auction", AuctionSchema);

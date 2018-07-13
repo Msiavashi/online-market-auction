@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+var Item = require("./Item");
 var OrderSchema = new Schema({
 
     item: {

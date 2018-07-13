@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Item = require("./Item");
+var Auction = require("./Auction");
 
 var AuctionItemSchema = new Schema({
 

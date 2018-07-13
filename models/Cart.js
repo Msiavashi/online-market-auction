@@ -24,7 +24,8 @@ var CartSchema = new Schema({
     },
 
     user: {
-        type: mongoose.SchemaTypes.ObjectId
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "User"
     }
 
 });

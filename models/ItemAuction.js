@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var itemAuctionSchema = new Schema({
+var ItemAuctionSchema = new Schema({
 
     itemId: {
         type: mongoose.SchemaTypes.ObjectId,
@@ -17,4 +17,4 @@ var itemAuctionSchema = new Schema({
 });
 
 
-module.exports = mongoose.model("PeerItem", PeerItemSchema);
+module.exports = mongoose.model("ItemAuction", ItemAuctionSchema);

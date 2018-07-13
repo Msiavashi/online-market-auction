@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+var Cart = require('./Cart');
+var ShipmentMethod = require("./ShipmentMethod");
 var ShipmentSchema = new Schema({
     
     title: {
@@ -14,7 +15,8 @@ var ShipmentSchema = new Schema({
     },
 
     shipmentMethod: {
-        type: mongoose.SchemaTypes.ObjectId
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "ShipmentMethod"
     },
     
     sendDate: {
@@ -37,4 +39,4 @@ var ShipmentSchema = new Schema({
 
 });
 
-module.exports = mongoose.model("ShipmentMethod", ShipmentMethodSchema);
+module.exports = mongoose.model("ShipmentSchema", ShipmentSchema);

@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var PaymentMehtod = require('./PaymentMethod');
+var Country = require("./Country");
+var City = require("./City");
+var State = require("./State");
+
+
 var AddressSchema = new Schema({
 
     country: {
@@ -11,13 +16,13 @@ var AddressSchema = new Schema({
 
     city: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Country",
+        ref: "City",
         require: true
     },
 
     state: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Country",
+        ref: "State",
         required: true
     },
 

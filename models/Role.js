@@ -5,8 +5,8 @@ var RoleSchema = new Schema({
     
     role: [
         {
-            type: String, 
-            enum:["admin", "supervisor", "customer"]
+            type: Number, 
+            enum:[0, 1, 2]    //["admin", "supervisor", "customer"]
         }
     ]
 

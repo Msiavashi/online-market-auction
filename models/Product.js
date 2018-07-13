@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var Guarantee = require('./Guarantee');
 var Category = require('./Category');
 var Manufacture = require('./Manufacture');
+var Inventory = require('./Inventory');
 
 var ProductSchema = new Schema({
 
@@ -30,10 +30,22 @@ var ProductSchema = new Schema({
         ref: "Manufacture"
     },
 
-    guaranties: [{
+
+    inventory: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Guarantee"
+        ref: "Inventory"
+    },
+
+
+    images: [{
+        cover: {
+            type: String
+        },
+        others: [{
+            type: String
+        }]
     }]
+
 
 });
 
