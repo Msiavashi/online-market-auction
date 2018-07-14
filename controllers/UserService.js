@@ -18,7 +18,45 @@ exports.deleteUserUidAuctionAid = function(args, res, next) {
   
 }
 
+exports.deleteUserUidAuctionAidItemIid = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * iid (String)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
 exports.deleteUserUidAuctionAidPlanPid = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * pid (String)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
+exports.deleteUserUidAuctionAidPledgePid = function(args, res, next) {
   /**
    * parameters expected in the args:
   * uid (String)
@@ -75,6 +113,27 @@ exports.deleteUserUidPaymentPid = function(args, res, next) {
   
 }
 
+exports.getUserUidAuctionAidItem = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  **/
+  // no response value expected for this operation
+  res.end();
+}
+
+exports.getUserUidAuctionAidItemIid = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * iid (String)
+  **/
+  // no response value expected for this operation
+  res.end();
+}
+
 exports.getUserUidAuctionAidPlan = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -110,6 +169,26 @@ exports.getUserUidAuctionAidPlanPid = function(args, res, next) {
     res.end();
   }
   
+}
+
+exports.getUserUidAuctionAidPledgePid = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * pid (String)
+  **/
+  // no response value expected for this operation
+  res.end();
+}
+
+exports.getUserUidAuctionUidPledge = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  **/
+  // no response value expected for this operation
+  res.end();
 }
 
 exports.getUserUidAuctionsRegistered = function(args, res, next) {
@@ -181,6 +260,25 @@ exports.getUserUidProfile = function(args, res, next) {
   
 }
 
+exports.getUserUidRetailerInfo = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  **/
+  // no response value expected for this operation
+  res.end();
+}
+
+exports.getUserUidRetailerRidInfo = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * rid (String)
+  **/
+  // no response value expected for this operation
+  res.end();
+}
+
 exports.patchUserUidAuctionAid = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -192,6 +290,26 @@ exports.patchUserUidAuctionAid = function(args, res, next) {
   res.end();
 }
 
+exports.patchUserUidAuctionAidItemIid = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * iid (String)
+  * body (AnonymousRepresentation119)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
 exports.patchUserUidAuctionAidPlanPid = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -199,6 +317,26 @@ exports.patchUserUidAuctionAidPlanPid = function(args, res, next) {
   * aid (String)
   * pid (String)
   * body (AnonymousRepresentation93)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
+exports.patchUserUidAuctionAidPledgePid = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * pid (String)
+  * body (AnonymousRepresentation116)
   **/
     var examples = {};
   examples['application/json'] = { };
@@ -261,6 +399,25 @@ exports.patchUserUidProfile = function(args, res, next) {
   
 }
 
+exports.patchUserUidRetailerRidInfo = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * rid (String)
+  * body (AnonymousRepresentation105)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
 exports.postUserLogin = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -305,6 +462,25 @@ exports.postUserUidAuction = function(args, res, next) {
   res.end();
 }
 
+exports.postUserUidAuctionAidItem = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * aid (String)
+  * body (AnonymousRepresentation111)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
 exports.postUserUidAuctionAidPlan = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -330,6 +506,24 @@ exports.postUserUidAuctionAidSave = function(args, res, next) {
   * uid (String)
   * aid (String)
   * body (AnonymousRepresentation80)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
+exports.postUserUidAuctionUidPledge = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * body (AnonymousRepresentation108)
   **/
     var examples = {};
   examples['application/json'] = { };
@@ -415,6 +609,24 @@ exports.postUserUidProductPidSave = function(args, res, next) {
   * uid (String)
   * pid (String)
   * body (AnonymousRepresentation82)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
+exports.postUserUidRetailerInfo = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * uid (String)
+  * body (AnonymousRepresentation102)
   **/
     var examples = {};
   examples['application/json'] = { };
