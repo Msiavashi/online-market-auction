@@ -14,7 +14,7 @@ tags:
 security:
 - Bearer: []
 paths:
-  /admin:
+  /api/admin:
     post:
       tags:
       - "admin"
@@ -29,7 +29,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation124"
       x-swagger-router-controller: "Admin"
-  /auction/advertises:
+  /api/auction/advertises:
     get:
       tags:
       - "auction"
@@ -43,7 +43,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation38"
       x-swagger-router-controller: "Auction"
-  /auction/carousel:
+  /api/auction/carousel:
     get:
       tags:
       - "auction"
@@ -67,7 +67,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation39"
       x-swagger-router-controller: "Auction"
-  /auction/daily/offers:
+  /api/auction/daily/offers:
     get:
       tags:
       - "auction"
@@ -91,7 +91,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation40"
       x-swagger-router-controller: "Auction"
-  /auction/events/upcoming:
+  /api/auction/events/upcoming:
     get:
       tags:
       - "auction"
@@ -119,7 +119,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation35"
       x-swagger-router-controller: "Auction"
-  /auction/news:
+  /api/auction/news:
     get:
       tags:
       - "auction"
@@ -143,7 +143,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation37"
       x-swagger-router-controller: "Auction"
-  /auction/popup/notification:
+  /api/auction/popup/notification:
     get:
       tags:
       - "auction"
@@ -157,7 +157,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation36"
       x-swagger-router-controller: "Auction"
-  /auction/upcoming:
+  /api/auction/upcoming:
     get:
       tags:
       - "auction"
@@ -185,7 +185,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation22"
       x-swagger-router-controller: "Auction"
-  /auction/{aid}:
+  /api/auction/{aid}:
     get:
       tags:
       - "auction"
@@ -217,7 +217,7 @@ paths:
       security:
       - Bearer: []
       x-swagger-router-controller: "Auction"
-  /auction/{aid}/register:
+  /api/auction/{aid}/register:
     get:
       tags:
       - "auction"
@@ -267,8 +267,8 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation31"
       x-swagger-router-controller: "Auction"
-  /auction/{aid}/websocket: {}
-  /auctions/filterby:
+  /api/auction/{aid}/websocket: {}
+  /api/auctions/filterby:
     get:
       tags:
       - "auction"
@@ -320,7 +320,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation33"
       x-swagger-router-controller: "Auction"
-  /payment/gateway/mellat/callback:
+  /api/payment/gateway/mellat/callback:
     post:
       tags:
       - "public"
@@ -339,7 +339,7 @@ paths:
       security:
       - Bearer: []
       x-swagger-router-controller: "Public"
-  /payment/methods:
+  /api/payment/methods:
     get:
       tags:
       - "public"
@@ -357,7 +357,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation42"
       x-swagger-router-controller: "Public"
-  /payment/{pid}/confirm:
+  /api/payment/{pid}/confirm:
     post:
       tags:
       - "public"
@@ -386,7 +386,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation47"
       x-swagger-router-controller: "Public"
-  /shipment/methods:
+  /api/shipment/methods:
     get:
       tags:
       - "public"
@@ -404,7 +404,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation44"
       x-swagger-router-controller: "Public"
-  /shop/advertises:
+  /api/shop/advertises:
     get:
       tags:
       - "shop"
@@ -422,7 +422,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation9"
       x-swagger-router-controller: "Shop"
-  /shop/carousel:
+  /api/shop/carousel:
     get:
       tags:
       - "shop"
@@ -446,7 +446,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation19"
       x-swagger-router-controller: "Shop"
-  /shop/categories:
+  /api/shop/categories:
     get:
       tags:
       - "shop"
@@ -460,7 +460,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation2"
       x-swagger-router-controller: "Shop"
-  /shop/category/{cid}:
+  /api/shop/category/{cid}:
     get:
       tags:
       - "shop"
@@ -488,7 +488,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation3"
       x-swagger-router-controller: "Shop"
-  /shop/category/{cid}/products/filterby:
+  /api/shop/category/{cid}/products/filterby:
     get:
       tags:
       - "shop"
@@ -542,7 +542,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation18"
       x-swagger-router-controller: "Shop"
-  /shop/contactus:
+  /api/shop/contactus:
     post:
       tags:
       - "shop"
@@ -567,7 +567,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation15"
       x-swagger-router-controller: "Shop"
-  /shop/daily/offers:
+  /api/shop/daily/offers:
     get:
       tags:
       - "shop"
@@ -591,7 +591,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation20"
       x-swagger-router-controller: "Shop"
-  /shop/events/upcoming:
+  /api/shop/events/upcoming:
     get:
       tags:
       - "shop"
@@ -619,7 +619,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation7"
       x-swagger-router-controller: "Shop"
-  /shop/news:
+  /api/shop/news:
     get:
       tags:
       - "shop"
@@ -647,7 +647,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation11"
       x-swagger-router-controller: "Shop"
-  /shop/popup/notification:
+  /api/shop/popup/notification:
     get:
       tags:
       - "shop"
@@ -661,7 +661,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation12"
       x-swagger-router-controller: "Shop"
-  /shop/product/{pid}:
+  /api/shop/product/{pid}:
     get:
       tags:
       - "shop"
@@ -683,7 +683,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation5"
       x-swagger-router-controller: "Shop"
-  /shop/product/{pid}/comments:
+  /api/shop/product/{pid}/comments:
     get:
       tags:
       - "shop"
@@ -711,7 +711,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation"
       x-swagger-router-controller: "Shop"
-  /user/login:
+  /api/user/login:
     post:
       tags:
       - "user"
@@ -736,7 +736,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation57"
       x-swagger-router-controller: "User"
-  /user/register:
+  /api/user/register:
     post:
       tags:
       - "user"
@@ -761,7 +761,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation54"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction:
+  /api/user/{uid}/auction:
     post:
       tags:
       - "user"
@@ -788,7 +788,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation65"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}:
+  /api/user/{uid}/auction/{aid}:
     delete:
       tags:
       - "user"
@@ -844,7 +844,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation69"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}/item:
+  /api/user/{uid}/auction/{aid}/item:
     get:
       tags:
       - "user"
@@ -894,7 +894,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation113"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}/item/{iid}:
+  /api/user/{uid}/auction/{aid}/item/{iid}:
     get:
       tags:
       - "user"
@@ -981,7 +981,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation121"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}/plan:
+  /api/user/{uid}/auction/{aid}/plan:
     get:
       tags:
       - "user"
@@ -1035,7 +1035,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation90"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}/plan/{pid}:
+  /api/user/{uid}/auction/{aid}/plan/{pid}:
     get:
       tags:
       - "user"
@@ -1126,7 +1126,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation95"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}/pledge/{pid}:
+  /api/user/{uid}/auction/{aid}/pledge/{pid}:
     get:
       tags:
       - "user"
@@ -1213,7 +1213,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation118"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{aid}/save:
+  /api/user/{uid}/auction/{aid}/save:
     post:
       tags:
       - "user"
@@ -1242,7 +1242,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation81"
       x-swagger-router-controller: "User"
-  /user/{uid}/auction/{uid}/pledge:
+  /api/user/{uid}/auction/{uid}/pledge:
     get:
       tags:
       - "user"
@@ -1284,7 +1284,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation110"
       x-swagger-router-controller: "User"
-  /user/{uid}/auctions/registered:
+  /api/user/{uid}/auctions/registered:
     get:
       tags:
       - "user"
@@ -1302,7 +1302,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation101"
       x-swagger-router-controller: "User"
-  /user/{uid}/cart/item:
+  /api/user/{uid}/cart/item:
     post:
       tags:
       - "user"
@@ -1333,7 +1333,7 @@ paths:
       security:
       - Bearer: []
       x-swagger-router-controller: "User"
-  /user/{uid}/cart/{cid}/order/{oid}/item/{iid}:
+  /api/user/{uid}/cart/{cid}/order/{oid}/item/{iid}:
     delete:
       tags:
       - "user"
@@ -1411,7 +1411,7 @@ paths:
       security:
       - Bearer: []
       x-swagger-router-controller: "User"
-  /user/{uid}/contactus:
+  /api/user/{uid}/contactus:
     post:
       tags:
       - "user"
@@ -1440,7 +1440,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation87"
       x-swagger-router-controller: "User"
-  /user/{uid}/password/reset:
+  /api/user/{uid}/password/reset:
     patch:
       tags:
       - "user"
@@ -1463,7 +1463,7 @@ paths:
         406:
           description: "Status 406"
       x-swagger-router-controller: "User"
-  /user/{uid}/payment/{pid}:
+  /api/user/{uid}/payment/{pid}:
     get:
       tags:
       - "user"
@@ -1510,7 +1510,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation51"
       x-swagger-router-controller: "User"
-  /user/{uid}/payment/{pid}/discount/code/apply:
+  /api/user/{uid}/payment/{pid}/discount/code/apply:
     post:
       tags:
       - "user"
@@ -1543,7 +1543,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation100"
       x-swagger-router-controller: "User"
-  /user/{uid}/popup/notification:
+  /api/user/{uid}/popup/notification:
     get:
       tags:
       - "user"
@@ -1561,7 +1561,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation84"
       x-swagger-router-controller: "User"
-  /user/{uid}/product/{pid}/comment:
+  /api/user/{uid}/product/{pid}/comment:
     post:
       tags:
       - "user"
@@ -1592,7 +1592,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation79"
       x-swagger-router-controller: "User"
-  /user/{uid}/product/{pid}/save:
+  /api/user/{uid}/product/{pid}/save:
     post:
       tags:
       - "user"
@@ -1621,7 +1621,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation83"
       x-swagger-router-controller: "User"
-  /user/{uid}/profile:
+  /api/user/{uid}/profile:
     get:
       tags:
       - "user"
@@ -1671,7 +1671,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation62"
       x-swagger-router-controller: "User"
-  /user/{uid}/retailer/info:
+  /api/user/{uid}/retailer/info:
     get:
       tags:
       - "user"
@@ -1713,7 +1713,7 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation104"
       x-swagger-router-controller: "User"
-  /user/{uid}/retailer/{rid}/info:
+  /api/user/{uid}/retailer/{rid}/info:
     get:
       tags:
       - "user"

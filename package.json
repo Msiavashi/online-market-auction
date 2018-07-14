@@ -23,6 +23,8 @@
     "mongoose": "^5.2.1",
     "mongoose-currency": "^0.2.0",
     "morgan": "^1.9.0",
+    "socket.io": "^2.1.1",
+    "socketio": "^1.0.0",
     "swagger-tools": "0.10.1"
   }
 }

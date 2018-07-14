@@ -1,6 +1,7 @@
 'use strict';
-
-var app = require('express')();
+var routes = require('./routes');
+var express = require('express');
+var app = express();
 var cors = require('cors');
 app.use(cors());
 var http = require('http');
@@ -11,20 +12,27 @@ var mongoose = require('mongoose');
 var morgan = require("morgan");
 var serverPort = 8080;
 var auth = require("./Auth");
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+var websocketHandler = require('./websocketHandler');
 
+// setup websocket
+websocketHandler(io);
+
+
+// setup static folder
+app.use(express.static('public'));
+
+// setup routes
+app.use('/', routes);
 
 // mongoose connection
 mongoose.connect('mongodb://localhost:27017/bistbid', {useNewUrlParser: true});
-
-// // JWT secret
-// app.set("superSecret", config.secret);
-
 
 // user morgan to log requests to console
 app.use(morgan('dev'));
 
 //configuring liana forest admin dashboard
-
 app.use(require('forest-express-mongoose').init({
   modelsDir: __dirname + '/models', // Your models directory.
   envSecret: process.env.FOREST_ENV_SECRET,
@@ -63,8 +71,9 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerUi());
 
   // Start the server
-  http.createServer(app).listen(serverPort, function () {
+  server.listen(serverPort, function () {
     console.log('Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
     console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
   });
 });
+
