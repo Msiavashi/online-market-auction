@@ -44,7 +44,7 @@ var UserSchema = mongoose.Schema({
 
 
     roles: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.SchemaTypes.ObjectId,
         ref: "Role"
     }],
 

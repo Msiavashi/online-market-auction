@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var role = {
+var roleEnum = {
     admin: 0,
     supervisor: 1,
     customer: 2
@@ -10,12 +10,10 @@ var role = {
 
 var RoleSchema = new Schema({
     
-    role: [
-        {
-            type: Number, 
-            enum:[role.admin, role.supervisor, role.customer]    //["admin", "supervisor", "customer"]
-        }
-    ]
+    role: {
+        type: Number, 
+        enum:[roleEnum.admin, roleEnum.supervisor, roleEnum.customer]    //["admin", "supervisor", "customer"]
+    }
 
 });
 

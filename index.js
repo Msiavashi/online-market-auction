@@ -8,12 +8,21 @@ var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var fs = require('fs');
 var mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
+var config = require("./config");
+var morgan = require("morgan");
 var serverPort = 8080;
 
 
 // mongoose connection
 mongoose.connect('mongodb://localhost:27017/bistbid', {useNewUrlParser: true});
 
+// JWT secret
+app.set("superSecret", config.secret);
+
+
+// user morgan to log requests to console
+app.use(morgan('dev'));
 
 //configuring liana forest admin dashboard
 

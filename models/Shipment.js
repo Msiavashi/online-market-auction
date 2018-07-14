@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var Cart = require('./Cart');
 var ShipmentMethod = require("./ShipmentMethod");
 
-var status = {
+var statusEnum = {
     IN_STORE: 0,
     READY_TO_SEND: 1,
     SENT: 2,
@@ -20,8 +20,8 @@ var ShipmentSchema = new Schema({
 
     status: {
         type: Number,
-        enum: [status.IN_STORE, status.READY_TO_SEND, status.SENT, status.DELIVERED],
-        default: status.IN_STORE
+        enum: [statusEnum.IN_STORE, statusEnum.READY_TO_SEND, statusEnum.SENT, statusEnum.DELIVERED],
+        default: statusEnum.IN_STORE
     },
 
     description: {
