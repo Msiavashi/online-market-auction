@@ -8,17 +8,16 @@ var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var fs = require('fs');
 var mongoose = require('mongoose');
-var jwt = require('jsonwebtoken');
-var config = require("./config");
 var morgan = require("morgan");
 var serverPort = 8080;
+var auth = require("./Auth");
 
 
 // mongoose connection
 mongoose.connect('mongodb://localhost:27017/bistbid', {useNewUrlParser: true});
 
-// JWT secret
-app.set("superSecret", config.secret);
+// // JWT secret
+// app.set("superSecret", config.secret);
 
 
 // user morgan to log requests to console
@@ -51,6 +50,11 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Validate Swagger requests
   app.use(middleware.swaggerValidator());
+
+
+  app.use(middleware.swaggerSecurity({
+    Bearer: auth.verifyToken
+  }));
 
   // Route validated requests to appropriate controller
   app.use(middleware.swaggerRouter(options));
