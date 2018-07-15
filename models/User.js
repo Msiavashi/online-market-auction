@@ -22,7 +22,8 @@ var UserSchema = mongoose.Schema({
 
     password: {
         type: String,
-        required: true
+        required: true,
+        select: false
     },
 
     gender: {
@@ -45,7 +46,8 @@ var UserSchema = mongoose.Schema({
 
     role: {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Role"
+        ref: "Role",
+        select: false
     },
 
 });
@@ -78,5 +80,6 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
+
 
 module.exports = mongoose.model("User", UserSchema);

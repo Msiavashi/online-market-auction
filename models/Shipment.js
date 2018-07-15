@@ -48,4 +48,4 @@ var ShipmentSchema = new Schema({
 
 });
 
-module.exports = mongoose.model("ShipmentSchema", ShipmentSchema);
+module.exports = mongoose.model("Shipment", ShipmentSchema);

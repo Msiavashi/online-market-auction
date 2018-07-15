@@ -1,0 +1,23 @@
+.productsText{
+    text-align: center;
+    direction: rlt;
+}
+
+.costText{
+    text-align: center;
+    color: green;
+    direction: rtl;
+}
+.columnHeaders{
+    background-color: teal;
+}
+
+.pageButton{
+    margin-top: 20px;
+}
+
+.ui.button.rightButtons{
+
+    margin-top: 20px;
+    margin-right: 20px;
+}

@@ -246,19 +246,28 @@ exports.getUserUidPopupNotification = function(args, res, next) {
   
 }
 
-exports.getUserUidProfile = function(args, res, next) {
+exports.getUserUidProfile = async function(args, res, next) {
   /**
    * parameters expected in the args:
   * uid (String)
   **/
-    var examples = {};
-  examples['application/json'] = { };
-  if(Object.keys(examples).length > 0) {
+  //   var examples = {};
+  // examples['application/json'] = { };
+  // if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
-  }
-  else {
-    res.end();
+  //   res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  // }
+  // else {
+  //   res.end();
+  // }
+  try {
+    const user = await User.findById(args.uid.value);
+    if (user){
+      res.status(200).send(user);
+    }
+    res.status(400).send({message: "user not found"});
+  } catch (error) {
+    res.status(500).send({message: error.message});
   }
   
 }

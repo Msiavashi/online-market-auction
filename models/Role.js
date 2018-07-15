@@ -2,17 +2,23 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var roleEnum = {
-    admin: 0,
-    supervisor: 1,
-    customer: 2
+    ADMIN: "ADMIN",
+    SUPERVISOR: "SUPERVISOR",
+    CUSTOMER: "CUSTOMER"
 }
 
 
 var RoleSchema = new Schema({
     
+    name: {
+        type: String,
+        trim: true,
+        required: true
+    },
+
     role: {
-        type: Number, 
-        enum:[roleEnum.admin, roleEnum.supervisor, roleEnum.customer],    //["admin", "supervisor", "customer"]
+        type: String, 
+        enum:[roleEnum.ADMIN, roleEnum.SUPERVISOR, roleEnum.CUSTOMER],
         required: true
     }
 

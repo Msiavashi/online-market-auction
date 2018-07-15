@@ -1,0 +1,97 @@
+body {
+    font: 400 15px/1.8 Tahoma, sans-serif;
+    color: #777;
+}
+
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: #3e2c74;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .5s;
+    border: 2px solid #f5f5f5;
+}
+.btn:hover, .btn:focus {
+    border: 2px solid ;
+    background-color: #fff;
+    color: #3e2c74;
+}
+
+
+.nav-tabs li a {
+    color: #777;
+}
+
+.navbar {
+    font-family: Tahoma, sans-serif;
+    margin-bottom: 0;
+    background-color: #3e2c74;
+    border: 0;
+    font-size: 15px !important;
+    opacity: 0.9;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #d5d5d5 !important;
+
+}
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+footer {
+    background-color: #3e2c74;
+    color: #f5f5f5;
+    padding: 32px;
+}
+footer a {
+    color: #f5f5f5;
+}
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+input[type=text] {
+    width: 300px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 1px;
+    font-size: 15px;
+    color: white;
+    background-color: transparent;
+    background-image: url('image/search.png');
+    background-position: left;
+    background-size: 20px;
+    padding-left: 10px;
+    background-repeat: no-repeat;
+    padding: 5px 10px 5px 40px;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+.fa:hover{
+    color: #ad1457;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.input-group-addon{
+    height: 5%;
+}
