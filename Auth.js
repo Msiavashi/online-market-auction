@@ -38,4 +38,5 @@ exports.issueToken = (username, role) => {
         sub: username,
         role: role
     }, config.secret);
+    return token;
 }

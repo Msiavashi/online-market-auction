@@ -1,7 +1,7 @@
 'use strict';
 var Role = require('../models/Role');
 var User = require('../models/User');
-
+var auth = require('../Auth');
 
 exports.deleteUserUidAuctionAid = function(args, res, next) {
   /**
@@ -421,24 +421,42 @@ exports.patchUserUidRetailerRidInfo = function(args, res, next) {
   
 }
 
-exports.postUserLogin = function(args, res, next) {
+exports.postUserLogin = async function(args, res, next) {
   /**
    * parameters expected in the args:
   * body (AnonymousRepresentation55)
   **/
-    var examples = {};
-  examples['application/json'] = { };
-  if(Object.keys(examples).length > 0) {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
-  }
-  else {
-    res.end();
+  //   var examples = {};
+  // examples['application/json'] = { };
+  // if(Object.keys(examples).length > 0) {
+  //   res.setHeader('Content-Type', 'application/json');
+  //   res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  // }
+  // else {
+  //   res.end();
+  // }
+
+  var username = args.body.value.username;
+  var password = args.body.value.password;
+  const user = await User.findOne({username: username});
+
+  if (user){
+    user.comparePassword(password, (error, isMatch) => {
+      if (isMatch){
+        // generate token
+        let token = auth.issueToken(username, user.role);
+        res.status(202).send({message: "login successful", token: token});
+      }else{
+        res.status(406).send({message: "failed"});
+      }
+    });
+  }else{
+    res.status(404).send({message: "user not found"});
   }
   
 }
 
-exports.postUserRegister = function(args, res, next) {
+exports.postUserRegister = async function(args, res, next) {
   /**
    * parameters expected in the args:
   * body (AnonymousRepresentation52)
@@ -461,12 +479,39 @@ exports.postUserRegister = function(args, res, next) {
   var firstName = args.body.value.firstName;
   var lastName = args.body.value.lastName;
 
-  Role.findOne({"role": Role.roleEnum.customer}, function(error, docss){
-    console.log(docss.role);
-    if (error){
-      console.log(error);
+  // check user existance
+  try {
+    const checkUser = await User.findOne({username: username});
+    if (checkUser){
+      res.status(406).send({message: "user exists"});
     }
+  } catch (error) {
+      res.status(500).end(error.message);
+  }
+
+
+  const user = new User({
+    name: {
+      first: firstName,
+      last: lastName
+    },
+
+    username: username,
+    password: password,
+    gender: gender,
+    email: email,
+    phoneNumber: phoneNumber,
   });
+
+  try {
+    const role = await Role.findOne({"role": Role.roleEnum.customer});
+    user.role = role.id;
+    let newUser = await user.save();
+    res.status(201).send({message: "user created"});
+  } catch (error) {
+    res.status(500).end(error.message);
+  }
+
 }
 
 exports.postUserUidAuction = function(args, res, next) {
