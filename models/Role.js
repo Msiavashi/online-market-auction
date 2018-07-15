@@ -12,9 +12,11 @@ var RoleSchema = new Schema({
     
     role: {
         type: Number, 
-        enum:[roleEnum.admin, roleEnum.supervisor, roleEnum.customer]    //["admin", "supervisor", "customer"]
+        enum:[roleEnum.admin, roleEnum.supervisor, roleEnum.customer],    //["admin", "supervisor", "customer"]
+        required: true
     }
 
 });
 
 module.exports = mongoose.model("Role", RoleSchema);
+module.exports.roleEnum = roleEnum;

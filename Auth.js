@@ -2,7 +2,7 @@ var config = require('./config');
 var jwt = require('jsonwebtoken');
 
 exports.verifyToken = (req, authOrSecDef, token, callback) => {
-
+    console.log("Bearer authentication");
     function sendError(){
         return req.res.status(403).json({message: "Error: Access Denied"});
     }

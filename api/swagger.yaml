@@ -11,8 +11,8 @@ tags:
 - name: "public"
 - name: "user"
 - name: "admin"
-security:
-- Bearer: []
+# security:
+# - Bearer: []
 paths:
   /api/admin:
     post:
@@ -28,6 +28,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation124"
+      security: 
+      - Bearer: []
       x-swagger-router-controller: "Admin"
   /api/auction/advertises:
     get:
@@ -143,20 +145,6 @@ paths:
           schema:
             $ref: "#/definitions/anonymousRepresentation37"
       x-swagger-router-controller: "Auction"
-  /api/auction/popup/notification:
-    get:
-      tags:
-      - "auction"
-      operationId: "getAuctionPopupNotification"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        200:
-          description: "Status 200"
-          schema:
-            $ref: "#/definitions/anonymousRepresentation36"
-      x-swagger-router-controller: "Auction"
   /api/auction/upcoming:
     get:
       tags:
@@ -214,6 +202,24 @@ paths:
           description: "Status 404"
           schema:
             $ref: "#/definitions/anonymousRepresentation26"
+      x-swagger-router-controller: "Auction"
+  /api/auction/{aid}/popup/notification:
+    get:
+      tags:
+      - "auction"
+      operationId: "getAuctionAidPopupNotification"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "aid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation36"
       security:
       - Bearer: []
       x-swagger-router-controller: "Auction"
@@ -238,6 +244,8 @@ paths:
           description: "Status 404"
           schema:
             $ref: "#/definitions/anonymousRepresentation28"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "Auction"
     post:
       tags:
@@ -266,6 +274,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation31"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "Auction"
   /api/auction/{aid}/websocket: {}
   /api/auctions/filterby:
@@ -336,8 +346,6 @@ paths:
       responses:
         200:
           description: "Status 200"
-      security:
-      - Bearer: []
       x-swagger-router-controller: "Public"
   /api/payment/methods:
     get:
@@ -385,6 +393,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation47"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "Public"
   /api/shipment/methods:
     get:
@@ -710,6 +720,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "Shop"
   /api/user/login:
     post:
@@ -787,6 +799,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation65"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}:
     delete:
@@ -813,6 +827,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation67"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     patch:
       tags:
@@ -843,6 +859,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation69"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}/item:
     get:
@@ -861,6 +879,8 @@ paths:
       responses:
         200:
           description: "Status 200"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     post:
       tags:
@@ -893,6 +913,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation113"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}/item/{iid}:
     get:
@@ -915,6 +937,8 @@ paths:
       responses:
         200:
           description: "Status 200"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     delete:
       tags:
@@ -944,6 +968,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation123"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     patch:
       tags:
@@ -980,6 +1006,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation121"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}/plan:
     get:
@@ -1002,6 +1030,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation91"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     post:
       tags:
@@ -1034,6 +1064,8 @@ paths:
           description: "Status 406"
           schema:
             $ref: "#/definitions/anonymousRepresentation90"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}/plan/{pid}:
     get:
@@ -1060,6 +1092,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation92"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     delete:
       tags:
@@ -1089,6 +1123,8 @@ paths:
           description: "Status 403"
           schema:
             $ref: "#/definitions/anonymousRepresentation97"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     patch:
       tags:
@@ -1125,6 +1161,8 @@ paths:
           description: "Status 406"
           schema:
             $ref: "#/definitions/anonymousRepresentation95"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}/pledge/{pid}:
     get:
@@ -1147,6 +1185,8 @@ paths:
       responses:
         200:
           description: "Status 200"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     delete:
       tags:
@@ -1176,6 +1216,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation115"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     patch:
       tags:
@@ -1212,6 +1254,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation118"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{aid}/save:
     post:
@@ -1241,6 +1285,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation81"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auction/{uid}/pledge:
     get:
@@ -1255,6 +1301,8 @@ paths:
       responses:
         200:
           description: "Status 200"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     post:
       tags:
@@ -1283,6 +1331,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation110"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/auctions/registered:
     get:
@@ -1301,6 +1351,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation101"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/cart/item:
     post:
@@ -1439,6 +1491,8 @@ paths:
           description: "Status 406"
           schema:
             $ref: "#/definitions/anonymousRepresentation87"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/password/reset:
     patch:
@@ -1462,6 +1516,8 @@ paths:
           description: "Status 200"
         406:
           description: "Status 406"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/payment/{pid}:
     get:
@@ -1488,6 +1544,8 @@ paths:
           description: "Status 404"
           schema:
             $ref: "#/definitions/anonymousRepresentation50"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     delete:
       tags:
@@ -1509,6 +1567,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation51"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/payment/{pid}/discount/code/apply:
     post:
@@ -1542,6 +1602,8 @@ paths:
           description: "Status 406"
           schema:
             $ref: "#/definitions/anonymousRepresentation100"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/popup/notification:
     get:
@@ -1560,6 +1622,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation84"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/product/{pid}/comment:
     post:
@@ -1591,6 +1655,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation79"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/product/{pid}/save:
     post:
@@ -1620,6 +1686,8 @@ paths:
           description: "Status 200"
           schema:
             $ref: "#/definitions/anonymousRepresentation83"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/profile:
     get:
@@ -1642,6 +1710,8 @@ paths:
           description: "Status 400"
           schema:
             $ref: "#/definitions/anonymousRepresentation59"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     patch:
       tags:
@@ -1670,6 +1740,8 @@ paths:
           description: "Status 304"
           schema:
             $ref: "#/definitions/anonymousRepresentation62"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/retailer/info:
     get:
@@ -1684,6 +1756,8 @@ paths:
       responses:
         200:
           description: "Status 200"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     post:
       tags:
@@ -1712,6 +1786,8 @@ paths:
           description: "Status 406"
           schema:
             $ref: "#/definitions/anonymousRepresentation104"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
   /api/user/{uid}/retailer/{rid}/info:
     get:
@@ -1730,6 +1806,8 @@ paths:
       responses:
         200:
           description: "Status 200"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
     patch:
       tags:
@@ -1762,6 +1840,8 @@ paths:
           description: "Status 406"
           schema:
             $ref: "#/definitions/anonymousRepresentation107"
+      security:
+      - Bearer: []
       x-swagger-router-controller: "User"
 securityDefinitions:
   Bearer:

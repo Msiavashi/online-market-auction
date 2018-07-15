@@ -35,7 +35,10 @@
               "$ref" : "#/definitions/anonymousRepresentation124"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/auction/advertises" : {
@@ -172,22 +175,6 @@
         }
       }
     },
-    "/auction/popup/notification" : {
-      "get" : {
-        "tags" : [ "auction" ],
-        "operationId" : "getAuctionPopupNotification",
-        "produces" : [ "application/json" ],
-        "parameters" : [ ],
-        "responses" : {
-          "200" : {
-            "description" : "Status 200",
-            "schema" : {
-              "$ref" : "#/definitions/anonymousRepresentation36"
-            }
-          }
-        }
-      }
-    },
     "/auction/upcoming" : {
       "get" : {
         "tags" : [ "auction" ],
@@ -258,6 +245,27 @@
               "$ref" : "#/definitions/anonymousRepresentation26"
             }
           }
+        }
+      }
+    },
+    "/auction/{aid}/popup/notification" : {
+      "get" : {
+        "tags" : [ "auction" ],
+        "operationId" : "getAuctionAidPopupNotification",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "aid",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation36"
+            }
+          }
         },
         "security" : [ {
           "Bearer" : [ ]
@@ -288,7 +296,10 @@
               "$ref" : "#/definitions/anonymousRepresentation28"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "auction" ],
@@ -321,7 +332,10 @@
               "$ref" : "#/definitions/anonymousRepresentation31"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/auction/{aid}/websocket" : { },
@@ -405,10 +419,7 @@
           "200" : {
             "description" : "Status 200"
           }
-        },
-        "security" : [ {
-          "Bearer" : [ ]
-        } ]
+        }
       }
     },
     "/payment/methods" : {
@@ -465,7 +476,10 @@
               "$ref" : "#/definitions/anonymousRepresentation47"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/shipment/methods" : {
@@ -855,7 +869,10 @@
               "$ref" : "#/definitions/anonymousRepresentation"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/login" : {
@@ -947,7 +964,10 @@
               "$ref" : "#/definitions/anonymousRepresentation65"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}" : {
@@ -979,7 +999,10 @@
               "$ref" : "#/definitions/anonymousRepresentation67"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "patch" : {
         "tags" : [ "user" ],
@@ -1014,7 +1037,10 @@
               "$ref" : "#/definitions/anonymousRepresentation69"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}/item" : {
@@ -1036,7 +1062,10 @@
           "200" : {
             "description" : "Status 200"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "user" ],
@@ -1074,7 +1103,10 @@
               "$ref" : "#/definitions/anonymousRepresentation113"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}/item/{iid}" : {
@@ -1101,7 +1133,10 @@
           "200" : {
             "description" : "Status 200"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "delete" : {
         "tags" : [ "user" ],
@@ -1136,7 +1171,10 @@
               "$ref" : "#/definitions/anonymousRepresentation123"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "patch" : {
         "tags" : [ "user" ],
@@ -1179,7 +1217,10 @@
               "$ref" : "#/definitions/anonymousRepresentation121"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}/plan" : {
@@ -1205,7 +1246,10 @@
               "$ref" : "#/definitions/anonymousRepresentation91"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "user" ],
@@ -1243,7 +1287,10 @@
               "$ref" : "#/definitions/anonymousRepresentation90"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}/plan/{pid}" : {
@@ -1274,7 +1321,10 @@
               "$ref" : "#/definitions/anonymousRepresentation92"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "delete" : {
         "tags" : [ "user" ],
@@ -1309,7 +1359,10 @@
               "$ref" : "#/definitions/anonymousRepresentation97"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "patch" : {
         "tags" : [ "user" ],
@@ -1352,7 +1405,10 @@
               "$ref" : "#/definitions/anonymousRepresentation95"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}/pledge/{pid}" : {
@@ -1379,7 +1435,10 @@
           "200" : {
             "description" : "Status 200"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "delete" : {
         "tags" : [ "user" ],
@@ -1414,7 +1473,10 @@
               "$ref" : "#/definitions/anonymousRepresentation115"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "patch" : {
         "tags" : [ "user" ],
@@ -1457,7 +1519,10 @@
               "$ref" : "#/definitions/anonymousRepresentation118"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{aid}/save" : {
@@ -1491,7 +1556,10 @@
               "$ref" : "#/definitions/anonymousRepresentation81"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auction/{uid}/pledge" : {
@@ -1508,7 +1576,10 @@
           "200" : {
             "description" : "Status 200"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "user" ],
@@ -1541,7 +1612,10 @@
               "$ref" : "#/definitions/anonymousRepresentation110"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/auctions/registered" : {
@@ -1562,7 +1636,10 @@
               "$ref" : "#/definitions/anonymousRepresentation101"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/cart/item" : {
@@ -1731,7 +1808,10 @@
               "$ref" : "#/definitions/anonymousRepresentation87"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/password/reset" : {
@@ -1759,7 +1839,10 @@
           "406" : {
             "description" : "Status 406"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/payment/{pid}" : {
@@ -1791,7 +1874,10 @@
               "$ref" : "#/definitions/anonymousRepresentation50"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "delete" : {
         "tags" : [ "user" ],
@@ -1815,7 +1901,10 @@
               "$ref" : "#/definitions/anonymousRepresentation51"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/payment/{pid}/discount/code/apply" : {
@@ -1855,7 +1944,10 @@
               "$ref" : "#/definitions/anonymousRepresentation100"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/popup/notification" : {
@@ -1876,7 +1968,10 @@
               "$ref" : "#/definitions/anonymousRepresentation84"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/product/{pid}/comment" : {
@@ -1913,7 +2008,10 @@
               "$ref" : "#/definitions/anonymousRepresentation79"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/product/{pid}/save" : {
@@ -1947,7 +2045,10 @@
               "$ref" : "#/definitions/anonymousRepresentation83"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/profile" : {
@@ -1974,7 +2075,10 @@
               "$ref" : "#/definitions/anonymousRepresentation59"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "patch" : {
         "tags" : [ "user" ],
@@ -2007,7 +2111,10 @@
               "$ref" : "#/definitions/anonymousRepresentation62"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/retailer/info" : {
@@ -2024,7 +2131,10 @@
           "200" : {
             "description" : "Status 200"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "post" : {
         "tags" : [ "user" ],
@@ -2057,7 +2167,10 @@
               "$ref" : "#/definitions/anonymousRepresentation104"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     },
     "/user/{uid}/retailer/{rid}/info" : {
@@ -2079,7 +2192,10 @@
           "200" : {
             "description" : "Status 200"
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       },
       "patch" : {
         "tags" : [ "user" ],
@@ -2117,7 +2233,10 @@
               "$ref" : "#/definitions/anonymousRepresentation107"
             }
           }
-        }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
       }
     }
   },

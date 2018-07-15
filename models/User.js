@@ -43,10 +43,10 @@ var UserSchema = mongoose.Schema({
     },
 
 
-    roles: [{
+    role: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Role"
-    }],
+    },
 
 });
 

@@ -14,6 +14,10 @@ module.exports.getAuctionAid = function getAuctionAid (req, res, next) {
   Auction.getAuctionAid(req.swagger.params, res, next);
 };
 
+module.exports.getAuctionAidPopupNotification = function getAuctionAidPopupNotification (req, res, next) {
+  Auction.getAuctionAidPopupNotification(req.swagger.params, res, next);
+};
+
 module.exports.getAuctionAidRegister = function getAuctionAidRegister (req, res, next) {
   Auction.getAuctionAidRegister(req.swagger.params, res, next);
 };
@@ -32,10 +36,6 @@ module.exports.getAuctionEventsUpcoming = function getAuctionEventsUpcoming (req
 
 module.exports.getAuctionNews = function getAuctionNews (req, res, next) {
   Auction.getAuctionNews(req.swagger.params, res, next);
-};
-
-module.exports.getAuctionPopupNotification = function getAuctionPopupNotification (req, res, next) {
-  Auction.getAuctionPopupNotification(req.swagger.params, res, next);
 };
 
 module.exports.getAuctionUpcoming = function getAuctionUpcoming (req, res, next) {

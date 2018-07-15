@@ -1,4 +1,7 @@
 'use strict';
+var Role = require('../models/Role');
+var User = require('../models/User');
+
 
 exports.deleteUserUidAuctionAid = function(args, res, next) {
   /**
@@ -440,16 +443,30 @@ exports.postUserRegister = function(args, res, next) {
    * parameters expected in the args:
   * body (AnonymousRepresentation52)
   **/
-    var examples = {};
-  examples['application/json'] = { };
-  if(Object.keys(examples).length > 0) {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
-  }
-  else {
-    res.end();
-  }
-  
+  //   var examples = {};
+  // examples['application/json'] = { };
+  // if(Object.keys(examples).length > 0) {
+  //   res.setHeader('Content-Type', 'application/json');
+  //   res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  // }
+  // else {
+  //   res.end();
+  // }
+
+  var username = args.body.value.username;
+  var password = args.body.value.password;
+  var phoneNumber = args.body.value.mobile;
+  var email = args.body.value.email;
+  var gender = args.body.value.gender;
+  var firstName = args.body.value.firstName;
+  var lastName = args.body.value.lastName;
+
+  Role.findOne({"role": Role.roleEnum.customer}, function(error, docss){
+    console.log(docss.role);
+    if (error){
+      console.log(error);
+    }
+  });
 }
 
 exports.postUserUidAuction = function(args, res, next) {

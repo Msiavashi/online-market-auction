@@ -33,6 +33,23 @@ exports.getAuctionAid = function(args, res, next) {
   
 }
 
+exports.getAuctionAidPopupNotification = function(args, res, next) {
+  /**
+   * parameters expected in the args:
+  * aid (String)
+  **/
+    var examples = {};
+  examples['application/json'] = { };
+  if(Object.keys(examples).length > 0) {
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  }
+  else {
+    res.end();
+  }
+  
+}
+
 exports.getAuctionAidRegister = function(args, res, next) {
   /**
    * parameters expected in the args:
@@ -109,22 +126,6 @@ exports.getAuctionNews = function(args, res, next) {
    * parameters expected in the args:
   * pagenum (Double)
   * pagesize (Double)
-  **/
-    var examples = {};
-  examples['application/json'] = { };
-  if(Object.keys(examples).length > 0) {
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
-  }
-  else {
-    res.end();
-  }
-  
-}
-
-exports.getAuctionPopupNotification = function(args, res, next) {
-  /**
-   * parameters expected in the args:
   **/
     var examples = {};
   examples['application/json'] = { };

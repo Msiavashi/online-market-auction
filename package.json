@@ -26,5 +26,8 @@
     "socket.io": "^2.1.1",
     "socketio": "^1.0.0",
     "swagger-tools": "0.10.1"
+  },
+  "devDependencies": {
+    "ws": "3.3.2"
   }
 }
