@@ -261,7 +261,7 @@ exports.getUserUidProfile = async function(args, res, next) {
   //   res.end();
   // }
   try {
-    const user = await User.findById(args.uid.value);
+    const user = await User.findById(args.uid.value).select("-password");
     if (user){
       res.status(200).send(user);
     }
@@ -438,7 +438,7 @@ exports.postUserLogin = async function(args, res, next) {
   //   var examples = {};
   // examples['application/json'] = { };
   // if(Object.keys(examples).length > 0) {
-  //   res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'application/json');
   //   res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
   // }
   // else {
@@ -448,9 +448,12 @@ exports.postUserLogin = async function(args, res, next) {
   var username = args.body.value.username;
   var password = args.body.value.password;
   const user = await User.findOne({username: username});
-
+  console.log(username);
+  console.log(password);
+  console.log(user.username);
   if (user){
     user.comparePassword(password, (error, isMatch) => {
+      console.log(error);
       if (isMatch){
         // generate token
         let token = auth.issueToken(username, user.role);

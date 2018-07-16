@@ -244,8 +244,8 @@ paths:
           description: "Status 404"
           schema:
             $ref: "#/definitions/anonymousRepresentation28"
-      security:
-      - Bearer: []
+      security: []
+      # - Bearer: []
       x-swagger-router-controller: "Auction"
     post:
       tags:

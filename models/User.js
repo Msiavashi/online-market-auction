@@ -23,7 +23,7 @@ var UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        select: false
+        // select: false
     },
 
     gender: {
@@ -47,7 +47,7 @@ var UserSchema = mongoose.Schema({
     role: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Role",
-        select: false
+        // select: false
     },
 
 });

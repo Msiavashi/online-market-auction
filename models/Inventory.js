@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Guaranty = require('./Guaranty');
+var Product = require("./Product");
 
 var InventorySchema = new Schema({
 
@@ -9,16 +10,16 @@ var InventorySchema = new Schema({
         ref: "Guaranty"
     },
 
-    poduct: {
-        type: mongoose.SchemaTypes.ObjectId
-    },
-
     quantity: {
         type: Number,
         required: true
-    }
+    },
 
-
+    product: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Product",
+        required: true
+    },
 });
 
 

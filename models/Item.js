@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var Inventory = require("./Inventory");
 
 var ItemSchema = new Schema({
 
     inventory: {
-        type: mongoose.SchemaTypes.ObjectId
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Inventory"
     },
 
     price: {

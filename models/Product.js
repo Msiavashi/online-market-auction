@@ -30,13 +30,6 @@ var ProductSchema = new Schema({
         ref: "Manufacture"
     },
 
-
-    inventory: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "Inventory"
-    },
-
-
     images: [{
         cover: {
             type: String
