@@ -18,6 +18,7 @@ var AuctionSchema = new Schema({
         required: true
     },
 
+
     basePrice: {
         type: Number,
         set: setPrice,
