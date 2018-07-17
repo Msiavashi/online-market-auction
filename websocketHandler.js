@@ -5,6 +5,7 @@ var ObjectId = require("mongoose").Types.ObjectId;
 var moment = require("moment");
 var jwt = require('jsonwebtoken');
 var config = require('./config');
+var AuctionRegister = require("./models/AuctionRegister");
 
 module.exports = (io) => {
 
@@ -12,14 +13,29 @@ module.exports = (io) => {
         return moment().diff(auction.startTime, "seconds");
     }
 
-    var isAuthenticated = (token, callback) => {
+    var isAuthorized = async (auction, token, callback) => {
 
         if (token && token.indexOf('Bearer ') == 0){
             var tokenString = token.split(' ')[1];
 
-            jwt.verify(tokenString, config.secret, (verificationError, decodedToken) => {
-                if (verificationError == null && decodedToken && decodedToken.role){
-                    return callback(decodedToken);
+            jwt.verify(tokenString, config.secret, async (verificationError, decodedToken) => {
+                if (verificationError == null && decodedToken){
+                    const user = await User.findOne({username: decodedToken.username});
+                    const auction = AuctionRegister.find({auction: auction._id}).populate({
+                        path: "auctionRegister",
+                        match: {
+                            user: user._id
+                        }
+                    });
+                    
+                    // if registerd in aution
+                    if (auction != []){
+                        return callback(decodedToken);
+                    }
+                    else{
+                        return callback(null);
+                    }
+
                 }else{
                     // return null as error in callback
                     return callback(null);
@@ -42,6 +58,10 @@ module.exports = (io) => {
         }
     }
 
+    var acceptOfferAndUpdateView = (decodedToken, auction) => {
+        // implement logic to accept or reject offer
+    }
+
 
     io.on("connection", function(client){
         client.on("join", function(room){
@@ -55,19 +75,27 @@ module.exports = (io) => {
         if (isFinished(auction)){
             io.emit("finished", {message: "این حراجی به اتمام رسیده است"});
         }
-        isAuthenticated(data.token, (decodedToken) => {
+        isAuthorized(auction, data.token, (decodedToken) => {
+            if (!decodedToken){
+                io.emit("forbidden", "شما اجازه ارسال پیشنهاد را ندارید");
+            }
             if (getRemainedTime(auction) > 60){
                 io.emit("wait", {message: "تا یک دقیقه پیش از شروع حراجی امکان ارسال پیشنهاد وجود نداد"});
             }else if (getRemainedTime(auction) > 0){
-                acceptOfferAndUpdateView(data.token);
+                acceptOfferAndUpdateView(decodedToken, data);
             }
 
         });
     });
 
     io.on("checkDone", function(data){
-        if(await isFinished(data.auctionId)){
+        if(isFinished(data.auctionId)){
             // send finished data
+            // set the winner
+            // send the item to winner's cart
+            // .
+            // .
+            // .
         }
     });
 }

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Item = require("./Item");
 var Auction = require("./Auction");
+var AuctionRegister = require("./AuctionRegister");
 
 var AuctionItemSchema = new Schema({
 
@@ -13,7 +14,12 @@ var AuctionItemSchema = new Schema({
     auction: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Auction"
-    }
+    },
+
+    auctionRegister: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "AuctionRegister"
+    }]
 });
 
 

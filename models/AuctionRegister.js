@@ -18,11 +18,6 @@ var AuctionRegisterSchema = new Schema({
         ref: "AuctionRegisterPlan"
     },
 
-    auctionItem: [{
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: "AuctionItem"
-
-    }],
 
 });
 
