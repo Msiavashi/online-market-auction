@@ -1,5 +1,5 @@
 'use strict';
-
+var moment = require("moment");
 var Auction = require("../models/Auction");
 var AuctionRegisterPlan = require("../models/AuctionRegisterPlan");
 var ObjectId = require("mongoose").Types.ObjectId;
@@ -41,8 +41,11 @@ exports.getAuctionAid = async function(args, res, next) {
 
 
   try {
-    const auction = await Auction.findById(args.aid.value);
+    let auction = await Auction.findById(args.aid.value);
     if (auction){
+      let remainedTime = moment().diff(moment(auction.startDate), "seconds");
+      auction = auction.toJSON();
+      auction.remainedTime = remainedTime > 0 ? remainedTime : 0;
       res.status(200).send(auction);
     }else{
       res.status(404).send({message: "auction not found"});
@@ -236,7 +239,6 @@ exports.postAuctionAidRegister = async function(args, res, next) {
     const user = User.findOne({username: args.auth.sub});
 
     if (auction && plan && paymentMethod && auctionItems && user){
-    console.log(args.auth.sub);
       let register = new AuctionRegister({
         user: user._id,
         plan: plan,

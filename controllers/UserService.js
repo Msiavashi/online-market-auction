@@ -2,6 +2,8 @@
 var Role = require('../models/Role');
 var User = require('../models/User');
 var auth = require('../Auth');
+var AuctionRegister = require("../models/AuctionRegister");
+var Auction = require("../models/Auction");
 
 exports.deleteUserUidAuctionAid = function(args, res, next) {
   /**
@@ -194,19 +196,36 @@ exports.getUserUidAuctionUidPledge = function(args, res, next) {
   res.end();
 }
 
-exports.getUserUidAuctionsRegistered = function(args, res, next) {
+exports.getUserUidAuctionsRegistered = async function(args, res, next) {
   /**
    * parameters expected in the args:
   * uid (String)
   **/
-    var examples = {};
-  examples['application/json'] = { };
-  if(Object.keys(examples).length > 0) {
+  //   var examples = {};
+  // examples['application/json'] = { };
+  // if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
-  }
-  else {
-    res.end();
+  //   res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  // }
+  // else {
+  //   res.end();
+  // }
+  try {
+    const auctionRegister = await AuctionRegister.find({user: auth.sub}).populate({
+      path: "plan",
+      populate: {
+        path: "auction",
+        model: "Auction"
+      }
+    });
+    const auctions = [];
+    auctionRegister.forEach(element => {
+      auctions.push(element.plan.auction);
+    });
+
+    res.status(200).send(auctions);
+  } catch (error) {
+    res.status(500).send({message: error.message});
   }
   
 }

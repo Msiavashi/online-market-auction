@@ -1,12 +1,13 @@
-
 module.exports = (io) => {
-
+    var rooms = [];
     io.on("connection", function(client){
-        console.log("client connected");
-
-        client.on("join", function(data){
-            console.log(data);
+        client.on("join", function(room){
+            console.log(room);
+            io.join(room);
         });
     });
 
+    io.on("offer", function(data){
+        
+    });
 }
