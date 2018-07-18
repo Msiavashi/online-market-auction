@@ -15,6 +15,7 @@ var auth = require("./Auth");
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 var websocketHandler = require('./websocketHandler');
+var mustache = require('stache');
 
 // setup websocket
 websocketHandler(io);
@@ -22,6 +23,14 @@ websocketHandler(io);
 
 // setup static folder
 app.use(express.static('public'));
+
+// setup public images directory
+app.use(express.static('public/static/images'));
+
+// setup mustache template engine
+// app.set('view_engine', 'mustache');
+// app.set('view engine', 'mustache');
+// app.set('views', __dirname + '/public/templates');
 
 // setup routes
 app.use('/', routes);

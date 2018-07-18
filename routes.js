@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 
 routes.get('/', (req, res, next) => {
-    res.sendFile(__dirname + "/tests/socket.html");
+    res.render('index');
 });
 
 routes.get('/user/{uid}/profile', (req, res, next) => {

@@ -6,6 +6,7 @@ var moment = require("moment");
 var jwt = require('jsonwebtoken');
 var config = require('./config');
 var AuctionRegister = require("./models/AuctionRegister");
+var Offer = require("./models/Offer");
 
 module.exports = (io) => {
 
@@ -58,8 +59,40 @@ module.exports = (io) => {
         }
     }
 
-    var acceptOfferAndUpdateView = (decodedToken, auction) => {
+    var acceptOfferAndUpdateView = async (decodedToken, auction) => {
         // implement logic to accept or reject offer
+        let lastOffer = await Offer.find({auction: auction._id}).sort({created_at: 'asc'}).populate("User").limit(1);
+        if (lastOffer.user.username === decodedToken.sub){
+            io.emit("lastOfferError", "شما نمیتوانید روی پیشنهاد خود پیشنهادی ارسال کنید")
+        }else{
+            let remainedTime = getRemainedTime(auction);
+            let user = await User.findOne({username: decodedToken.username})
+            let newOffer = new Offer({
+                auction: auction._id,
+                win: true,
+                totalPrice: lastOffer == [] ? auction.basePrice + (10000 * auction.ratio) : lastOffer.totalPrice + (10000 * auction.ratio),
+                user: user._id
+            });
+            lastOffer.win = false;
+            let updatedLastOffer = await lastOffer.save();
+            let savedOffer = await newOffer.save();
+
+            let newTime = null;
+            if (remainedTime <= 10){
+                newTime = 10;       // reset the timer to 10 seconds
+            }
+
+            let newData = {
+                lastOffer: savedOffer,
+                newTime: newTime,
+                previousOffers: await Offer.find({auction: auction._id}).sort({created_at: 'asc'})
+            }
+
+            io.socket.to(auction._id).emit("update", newData);
+
+        }
+
+
     }
 
 
@@ -80,7 +113,7 @@ module.exports = (io) => {
                 io.emit("forbidden", "شما اجازه ارسال پیشنهاد را ندارید");
             }
             if (getRemainedTime(auction) > 60){
-                io.emit("wait", {message: "تا یک دقیقه پیش از شروع حراجی امکان ارسال پیشنهاد وجود نداد"});
+                io.emit("notStarted", {message: "تا یک دقیقه پیش از شروع حراجی امکان ارسال پیشنهاد وجود نداد"});
             }else if (getRemainedTime(auction) > 0){
                 acceptOfferAndUpdateView(decodedToken, data);
             }

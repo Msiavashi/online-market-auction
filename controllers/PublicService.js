@@ -1,6 +1,12 @@
 'use strict';
 var PaymentMethod = require("../models/PaymentMethod") ;
 var ShipmentMethod = require("../models/ShipmentMethod");
+const MellatCheckout = require('mellat-checkout');
+const Mellat = require('mellat-payment');
+var soap = require('soap');
+const Payir = require('payir');
+
+
 exports.getPaymentMethods = async function(args, res, next) {
   /**
    * parameters expected in the args:

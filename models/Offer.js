@@ -10,7 +10,6 @@ var OfferSchema = new Schema({
         ref: "User"
     },
 
-
     totalPrice: {
         type: Number,
         set: setPrice,
@@ -22,12 +21,19 @@ var OfferSchema = new Schema({
     },
 
     win: {
-        type: Boolean 
+        type: Boolean,
+        required: true
     },
 
     auction: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Auction"
+    },
+
+    created_at: {
+        type: Date,
+        default: new Date(),
+        required: true
     },
 
 });

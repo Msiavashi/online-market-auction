@@ -39,7 +39,8 @@ var AuctionSchema = new Schema({
     },
 
     ratio: {
-        type: Number
+        type: Number,
+        required: true
     },
 
 });
