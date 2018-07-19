@@ -1,7 +1,7 @@
 const routes = require('express').Router();
 
 routes.get('/', (req, res, next) => {
-    res.render('index');
+    res.render('index.mustache');
 });
 
 routes.get('/user/{uid}/profile', (req, res, next) => {
