@@ -3,6 +3,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Order = require('./Order.js');
 var User = require('./User');
+var Payment = require('./Payment');
+
+var statusEnum = {
+    UNPAID: 0,
+    PAID: 1
+}
 
 var CartSchema = new Schema({
 
@@ -26,6 +32,17 @@ var CartSchema = new Schema({
     user: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "User"
+    },
+
+    status: {
+        type: Number,
+        enum: [statusEnum.UNPAID, statusEnum.PAID],
+        required: true
+    },
+
+    payment: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Payment"
     }
 
 });
@@ -42,3 +59,4 @@ function setDiscount(price){
 }
 
 module.exports = mongoose.model("Cart", CartSchema);
+module.exports.statusEnum = statusEnum;

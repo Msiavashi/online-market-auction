@@ -161,3 +161,7 @@ module.exports.postUserUidProductPidSave = function postUserUidProductPidSave (r
 module.exports.postUserUidRetailerInfo = function postUserUidRetailerInfo (req, res, next) {
   User.postUserUidRetailerInfo(req.swagger.params, res, next);
 };
+
+module.exports.getUserUidCarts = function getUserUidCarts(req, res, next){
+  User.getUserUidCarts(req.swagger.params, res, next);
+}

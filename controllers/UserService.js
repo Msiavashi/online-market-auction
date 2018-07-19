@@ -4,6 +4,10 @@ var User = require('../models/User');
 var auth = require('../Auth');
 var AuctionRegister = require("../models/AuctionRegister");
 var Auction = require("../models/Auction");
+var Cart = require('../models/Cart');
+var Payment = require('../models/Payment');
+var Item = require('../models/Item');
+var Order = require('../models/Order');
 
 exports.deleteUserUidAuctionAid = function(args, res, next) {
   /**
@@ -630,7 +634,7 @@ exports.postUserUidAuctionUidPledge = function(args, res, next) {
   
 }
 
-exports.postUserUidCartItem = function(args, res, next) {
+exports.postUserUidCartItem = async function(args, res, next) {
   /**
    * parameters expected in the args:
   * uid (String)
@@ -645,7 +649,39 @@ exports.postUserUidCartItem = function(args, res, next) {
   // else {
   //   res.end();
   // }
-  
+
+  let itemId = args.body.value.itemId;
+  let item = await Item.findById(itemId);
+
+  if (!item){
+    res.status(404).send({message: "item not found"});
+  }
+
+  let unpaidCart = await Cart.findOne({status: Cart.statusEnum.UNPAID}).populate('payment');
+  let newOrder = new Order({
+    item: itemId
+  });
+
+  let savedOrder = await newOrder.save();
+  if (unpaidCart){
+    // update the cart
+    unpaidCart.orders.push(savedOrder._id);
+
+    unpaidCart = await unpaidCart.save();
+    res.status(200).send({message: "item added to cart", cart: unpaidCart});
+  }else{
+    // create new cart
+    let newCart = new Cart({
+      status: Cart.statusEnum.UNPAID,
+      user: await User.findOne({username: args.auth.sub}),
+      orders: [savedOrder]
+    });
+
+    let savedCart = await newCart.save();
+    res.status(200).send({message: "item added to cart", cart: savedCart});
+  }
+
+
 }
 
 exports.postUserUidContactus = function(args, res, next) {
@@ -730,6 +766,25 @@ exports.postUserUidRetailerInfo = function(args, res, next) {
   else {
     res.end();
   }
+}
+
+exports.getUserUidCarts = async function getUserUidCarts(args, res, next) {
+/**
+ * parameters expected in the args:
+* uid (String)
+* body (AnonymousRepresentation125)
+* body (AnonymousRepresentation126)
+**/
+  res.setHeader('Content-Type', 'application/json');
   
+  try {
+    const user = await User.findOne({username: args.auth.sub});
+    const carts = await Cart.find({user: user._id});
+    res.status(200).send(carts);
+  } catch (error) {
+    res.status(500).send({message: error.message});
+  }
+
+    
 }
 

@@ -1689,6 +1689,30 @@ paths:
       security:
       - Bearer: []
       x-swagger-router-controller: "User"
+  /api/user/{uid}/carts:
+    get:
+      tags:
+      - "user"
+      operationId: "getUserUidCarts"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "uid"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation125"
+        400:
+          description: "Status 400"
+          schema:
+            $ref: "#/definitions/anonymousRepresentation126"
+      security:
+      - Bearer: []
+      x-swagger-router-controller: "User"
   /api/user/{uid}/profile:
     get:
       tags:
@@ -2096,4 +2120,8 @@ definitions:
   anonymousRepresentation123:
     type: "object"
   anonymousRepresentation124:
+    type: "object"
+  anonymousRepresentation125:
+    type: "object"
+  anonymousRepresentation126:
     type: "object"

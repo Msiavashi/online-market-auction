@@ -24,7 +24,8 @@ var PaymentSchema = new Schema({
     amount: {
         type: Number,
         set: setAmount,
-        get: getAmount
+        get: getAmount,
+        required: true
     },
 
     status: {
@@ -47,7 +48,7 @@ var PaymentSchema = new Schema({
         type: String
     },
     
-    SaleRefrenceId:{
+    saleRefrenceId:{
         type: String
     },
 

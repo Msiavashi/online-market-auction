@@ -175,21 +175,29 @@ exports.getAuctionNews = function(args, res, next) {
   
 }
 
-exports.getAuctionUpcoming = function(args, res, next) {
+exports.getAuctionUpcoming = async function(args, res, next) {
   /**
    * parameters expected in the args:
   * pagenum (Double)
   * pagesize (Double)
   **/
-    var examples = {};
-  examples['application/json'] = { };
-  if(Object.keys(examples).length > 0) {
+  //   var examples = {};
+  // examples['application/json'] = { };
+  // if(Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  //   res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
+  // }
+  // else {
+  //   res.end();
+  // }
+
+  try {
+    const auctions = Auction.find({startDate: {'$gte': new Date()}});
+    res.status(200).send(auctions);
+  } catch (error) {
+    res.status(500).send({message: error.message});
   }
-  else {
-    res.end();
-  }
+
   
 }
 
