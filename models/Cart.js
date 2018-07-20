@@ -20,6 +20,7 @@ var CartSchema = new Schema({
     discountCode: {
         type: String,
         trim: true,
+        default: null,
     },
 
     discountPrice:{
