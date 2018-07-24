@@ -15,9 +15,11 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "buefy": "^0.6.6",
     "eslint": "^5.1.0",
     "material-design-icons-iconfont": "^3.0.3",
     "vue": "^2.5.2",
+    "vue-carousel": "^0.10.0",
     "vue-cli": "^2.9.6",
     "vue-router": "^3.0.1",
     "vuetify": "^1.1.7",

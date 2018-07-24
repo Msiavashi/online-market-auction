@@ -6,11 +6,14 @@ import router from './router'
 import Vuetify from 'vuetify'
 import Vuex from 'vuex'
 Vue.use(Vuex)
-import 'material-design-icons-iconfont/dist/material-design-icons.css'
+// import 'material-design-icons-iconfont/dist/material-design-icons.css'
 Vue.use(Vuetify)
 import storePlugin from './store/storePlugin'
 Vue.use(storePlugin)
 Vue.config.productionTip = false
+import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
+Vue.use(Buefy)
 
 /* eslint-disable no-new */
 new Vue({

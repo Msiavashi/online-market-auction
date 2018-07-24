@@ -1,13 +1,15 @@
 <template>
-  <div id="app">
+  <div>
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
 </template>
 
 <script>
+// import Drawer from '@/components/Drawer'
 export default {
   name: 'App'
+  // components: {Drawer}
 }
 </script>
 
