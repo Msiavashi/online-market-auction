@@ -7,8 +7,8 @@
       fixed
       clipped-right
     >
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <v-toolbar-side-icon @click="$emit('toggleDrawer')"></v-toolbar-side-icon>
+      <v-toolbar-side-icon v-if="hamberger" @click.stop="$emit('toggle-drawer')"></v-toolbar-side-icon>
+      <v-toolbar-title style="width: 300px" class="mr-0 pr-3">
         <span class="hidden-sm-and-down">بیست بید</span>
       </v-toolbar-title>
       <v-text-field
@@ -20,11 +20,14 @@
         class="hidden-sm-and-down"
       ></v-text-field>
       <v-spacer></v-spacer>
+      <router-link :to="{name: 'Signup'}">
+        <v-btn flat>
+          ثبت نام
+        </v-btn>
+      </router-link>
+      <v-btn @click.stop="$emit('toggle-login-modal')" flat>ورود</v-btn>
       <v-btn icon>
         <v-icon>apps</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>notifications</v-icon>
       </v-btn>
       <v-btn icon large>
         <v-avatar size="32px" tile>
@@ -34,6 +37,7 @@
           >
         </v-avatar>
       </v-btn>
+
     </v-toolbar>
 </template>
 
@@ -42,5 +46,12 @@ export default {
   data: () => ({
     drawer: null
   }),
+  props: {
+    hamberger:{
+      type: Boolean,
+      required: false,
+      default: true
+    }
+  }
 }
 </script>

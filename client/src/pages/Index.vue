@@ -1,9 +1,9 @@
 <template>
   <v-app id="inspire">
-
-    <Drawer v-bind:drawer="openDrawer"></Drawer>
-    <guest-header @toggleDrawer="openDrawer = !openDrawer" v-if="isAuthenticated"> </guest-header>
-    <user-header @toggleDrawer="openDrawer = !openDrawer" v-else></user-header>
+    <login ref="login"></login>
+    <drawer ref="drawer"></drawer>
+    <guest-header @toggle-login-modal="$refs.login.show = !$refs.login.show" @toggle-drawer="$refs.drawer.drawer = !$refs.drawer.drawer" v-if="isAuthenticated"> </guest-header>
+    <!-- <user-header @toggleDrawer="openDrawer = !openDrawer" v-else></user-header> -->
     
     
     <v-content>
@@ -14,7 +14,7 @@
         <v-subheader
               inset
             >
-              test
+              حراجی ها
         </v-subheader>
 
         <v-divider
@@ -23,11 +23,14 @@
 
         <v-container fluid grid-list-md> 
             <v-layout row wrap>
-                <v-flex md4 justify-space-around v-for="i in 9">
+                <v-flex md4 justify-space-around v-for="i in 5">
                     <auction-cart> </auction-cart>
                 </v-flex>
             </v-layout>
         </v-container>
+
+        <paginate></paginate>
+
     </v-content>
 
 
@@ -44,18 +47,24 @@ import Drawer from '@/components/Drawer'
 import Footer from '@/components/Footer'
 import Carousel from '@/components/Carousel'
 import AuctionCart from '@/components/AuctionCart'
+import Paginate from '@/components/Paginate'
+import Login from '@/components/Login'
   export default {
     components: {
+        Login,
         AuctionCart,
         Carousel,
         Drawer,
         Footer,
         UserHeader,
-        GuestHeader
+        GuestHeader,
+        Paginate
     },
-    data: () => ({
-      openDrawer: null,
-    }),
+    data: function(){
+        return {
+            openDrawer: null,
+        }
+    },
     props: {
       source: String
     },
@@ -64,5 +73,6 @@ import AuctionCart from '@/components/AuctionCart'
             return true;
         }
     },
+
   }
 </script>

@@ -70,6 +70,7 @@
 <script>
 export default {
     data: () => ({
+    drawer: null,
     items:[
         { icon: 'contacts', text: 'Contacts' },
         { icon: 'history', text: 'Frequently contacted' },
@@ -104,11 +105,5 @@ export default {
       ]
     }),
 
-    props: {
-        drawer: {
-            type: Boolean,
-            required: true
-        }
-    },
 }
 </script>
